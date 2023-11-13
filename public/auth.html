@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <script defer type="module" src="auth.js"></script>
+    <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+    <div class="auth">
+        <div class="form">
+                <img src="./asset/image/person.png" id="profile" alt="profile">
+
+                <div class="input username">
+                    <img src="./asset/image/person.png"  alt="profile">
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="input">
+                    <img src="./asset/image/email.png"  alt="profile">
+                    <input type="email" id="email" name="email" placeholder="enter your name">
+                </div>
+                <div class="input">
+                    <img src="./asset/image/password.png"  alt="profile">
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                <p id="isLogin"></p>
+        </div>
+        <button class="btn">Login</button>
+    </div>
+</body>
+</html>
