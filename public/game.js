@@ -9,7 +9,7 @@ const getGames = async()=>{
 
         },
       }
-    const res = await fetch('https://yourgame.onrender.com/game/getgames', options);
+    const res = await fetch('https://yourname-6kdw.onrender.com/game/getgames', options);
     const response = await res.json();
     const data = response.data
     console.log(data)

@@ -5,7 +5,7 @@ let form;
 
 const Auth = async (form)=>{
     try {
-        const url = 'https://yourgame.onrender.com/game/add';
+        const url = 'https://yourname-6kdw.onrender.com/game/add';
         const option = {
             method: 'POST',
             headers: {

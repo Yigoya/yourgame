@@ -22,7 +22,7 @@ pIsLogin.addEventListener('click', ()=>{
 
 const Auth = async (form)=>{
     try {
-        const url = isLogin ? 'https://yourgame.onrender.com/auth/login':'https://yourgame.onrender.com/auth/register'
+        const url = isLogin ? 'https://yourname-6kdw.onrender.com/auth/login':'https://yourname-6kdw.onrender.com/auth/register'
         const option = {
             method: 'POST',
             headers: {
