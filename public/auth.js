@@ -1,4 +1,4 @@
-// const form = document.querySelector('form');
+const auth = document.querySelector('.auth');
 const submit = document.querySelector('.btn');
 const username = document.querySelector('#username');
 const email = document.querySelector('#email');
@@ -18,9 +18,11 @@ pIsLogin.addEventListener('click', ()=>{
     submit.innerHTML = isLogin ? "Login" : "Register"
 })
 
+
+
 const Auth = async (form)=>{
     try {
-        const url = isLogin ? 'http://localhost:5000/auth/login':'http://localhost:5000/auth/register'
+        const url = isLogin ? 'https://yourgame.onrender.com/auth/login':'https://yourgame.onrender.com/auth/register'
         const option = {
             method: 'POST',
             headers: {
@@ -30,12 +32,21 @@ const Auth = async (form)=>{
         }
         const res = await fetch(url,option)
         const data = await res.json()
-        console.log(data.user._id)
+        console.log(data)
+        console.log(data.message)
         if(data.status === 200){
             localStorage.setItem('user', data.user._id)
             window.location.href = '../index.html'
         }else{
-
+            let div = document.createElement('div')
+            let p = document.createElement('p')
+            p.innerHTML = data.message
+            div.className = 'alert'
+            div.appendChild(p)
+            auth.appendChild(div)
+            setTimeout(()=>{
+                div.remove()
+            },2000)
         }
 
     }catch(err){

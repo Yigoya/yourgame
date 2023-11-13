@@ -29,17 +29,20 @@ router.post('/add', async (req, res)=>{
             console.log(isProject)
             if(!isProject){
                 await cloneProject(link)
+                
+                const newGame = new Game({
+                    link,
+                    githubusername:match[1],
+                    projectname:match[2],
+                    userId
+                })
+                
+                await newGame.save();
+                
+                res.json({status:200,message:"game added"})
+            }else {
+                res.json({status:400,message:"project already exists"})
             }
-            const newGame = new Game({
-                link,
-                githubusername:match[1],
-                projectname:match[2],
-                userId
-            })
-            
-            await newGame.save();
-            
-            res.json({status:200,message:"game added"})
         }else{
             res.json({status:400,message:"invalid link"})
         }
