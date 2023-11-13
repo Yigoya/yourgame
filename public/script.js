@@ -16,7 +16,7 @@ const Auth = async (form)=>{
         const res = await fetch(url,option)
         const data = await res.json()
         console.log(data)
-
+        return data
     }catch(err){
         console.log(err)
     }
@@ -39,7 +39,17 @@ post.addEventListener('click',async()=>{
                 link:repo.value,
                 userId:localStorage.getItem('user')
             }
-            await Auth(form)
+            const data = await Auth(form)
+
+            let div = document.createElement('div')
+            let p = document.createElement('p')
+            p.innerHTML = data.message
+            div.className = 'success'
+            div.appendChild(p)
+            container.appendChild(div)
+            setTimeout(()=>{
+                div.remove()
+            },2000)
         }
     }
     else {
